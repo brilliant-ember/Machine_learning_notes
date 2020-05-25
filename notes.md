@@ -5,12 +5,31 @@ Oh and the derivative is the slope, like the derivatie is a way of obtaining the
 
 ## Glossary
 - NN = neural network
+
+### Random Basic stuff
+
+![](screenshots/2020-05-24-14-25-59.png) *https://colab.research.google.com/github/tensorflow/examples/blob/master/courses/udacity_intro_to_tensorflow_for_deep_learning/l02c01_celsius_to_fahrenheit.ipynb#scrollTo=m8YQN1H41L-Y*
+
+ <br>
+
+![](screenshots/2020-05-24-20-17-34.png)*backpropgation https://classroom.udacity.com/courses/ud187/lessons/e0c70c77-5584-4f83-a47b-a67a6172ae75/concepts/ac6c6991-8096-4c7a-bad1-706f7e3d36f1*
+
+
+
 ### Gradient descent
 
 The following screenshot is taken from MIT intro to deep learning course https://github.com/aamini/introtodeeplearning/blob/master/lab1/solutions/Part1_TensorFlow_Solution.ipynb
 ![](screenshots/2020-05-17-16-09-23.png)
 
 <br>
+
+
+<br>
+
+------------------------------------
+
+### Gradient tape
+When u do backpropagation you need your previously computed gradeints. we can store them one by one, but a neater way of doing it is useing gradient tape, which stores it and then when it is time to backprop it "pops" the gradients we previously computed. it is like a tape record but for gradients. Stack over flow says _"to back propagate errors, you have to keep track of the gradients of your computation and then apply these gradients to an optimiser."_ https://stackoverflow.com/questions/53953099/what-is-the-purpose-of-the-tensorflow-gradient-tape
 
 ### Variational Autoencoders
 Notes I referenced: https://www.youtube.com/watch?v=9zKuYvjFFS8 , and this but the 2019 version https://www.youtube.com/watch?v=rZufA635dq4&t=67s 
