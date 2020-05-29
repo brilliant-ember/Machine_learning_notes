@@ -15,6 +15,14 @@ Oh and the derivative is the slope, like the derivatie is a way of obtaining the
 ![](screenshots/2020-05-24-20-17-34.png)*backpropgation https://classroom.udacity.com/courses/ud187/lessons/e0c70c77-5584-4f83-a47b-a67a6172ae75/concepts/ac6c6991-8096-4c7a-bad1-706f7e3d36f1*
 
 
+Normalization is when u make ur data between 0 and 1, for example for a pixel vvalue form 0 to 255, so you want to move that range and map it to the range between 0 and 1. This gives us better results almost always
+
+Regression is when u predict a single number/output from input data, for example estimating the price of a house based on its specifications is Regression
+Classification, is when u classifu duh. Outputs a probability distribution
+
+------------------------------------
+____________________________________
+
 
 ### Gradient descent
 
@@ -30,6 +38,8 @@ The following screenshot is taken from MIT intro to deep learning course https:/
 
 ### Gradient tape
 When u do backpropagation you need your previously computed gradeints. we can store them one by one, but a neater way of doing it is useing gradient tape, which stores it and then when it is time to backprop it "pops" the gradients we previously computed. it is like a tape record but for gradients. Stack over flow says _"to back propagate errors, you have to keep track of the gradients of your computation and then apply these gradients to an optimiser."_ https://stackoverflow.com/questions/53953099/what-is-the-purpose-of-the-tensorflow-gradient-tape
+
+----------------
 
 ### Variational Autoencoders
 Notes I referenced: https://www.youtube.com/watch?v=9zKuYvjFFS8 , and this but the 2019 version https://www.youtube.com/watch?v=rZufA635dq4&t=67s 
@@ -74,5 +84,9 @@ https://mc.ai/auto-encoder-in-biology/*
 - logit values are what softmax takes as inputs, it then outputs probabilites
 
 
- ### note
-speedy notes, pardon the mad typos!
+ ### note and cool resources
+- speedy notes, pardon the mad typos!
+- https://developers.google.com/machine-learning/crash-course/reducing-loss/video-lecture
+- https://classroom.udacity.com/courses/ud187/lessons/e0c70c77-5584-4f83-a47b-a67a6172ae75/concepts/ac6c6991-8096-4c7a-bad1-706f7e3d36f1
+- caching training data makes training faster ``` train_dataset =  train_dataset.cache()
+ ```
