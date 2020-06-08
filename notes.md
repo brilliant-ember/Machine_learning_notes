@@ -1,6 +1,6 @@
-# Machine learning notes
+# General Machine learning notes
 
-gradient is another word for slope, the higher the gradient the steeper the line at a point ie the higher the slope, negative gradietn means that the slope is negative.
+Gradient is another word for slope, the higher the gradient the steeper the line at a point ie the higher the slope, negative gradietn means that the slope is negative.
 Oh and the derivative is the slope, like the derivatie is a way of obtaining the slope.
 
 ## Glossary
@@ -76,17 +76,25 @@ https://mc.ai/auto-encoder-in-biology/*
 
 ### Misc
 - model = neural net
-- Kernal = weights 
+- Kernal = weights and in CNN it's the filter vaules (look at CNN notes for more info)
 - tensor = an array or a matrix of any dimention
 - 1d tensor = an array , 2d matrix = each element in the first array is an array. Ie a matrix , think of it that u hv to dive to arrays to get actual numbers.
  3d tensor = numbers in an array, in an array, in another array for a total of 3 arrays deep till u get to the numbers.
 - ## CNN can do everything RNN can but better! https://youtu.be/r0Ogt-q956I?t=10499
 - logit values are what softmax takes as inputs, it then outputs probabilites
+- steps_per_epoch and validation_steps params for compiling a model:
+    steps_per_epoch is how many batches of data to run through the model during training, be default it is NONE, meaning it will divide the sample data by the number of batches, or will be 1 if that division fails.
+    If you want to use all your data on every epoch, then steps_per_epoch must equal the number of batches, we do that the same way the code below does.
+    validation_steps does the same thing only with validation data, while the steps_per_epoch does it only for training data
+    ![](screenshots/2020-06-07-21-37-39.png)*https://androidkt.com/how-to-set-steps-per-epoch-validation-steps-and-validation-split-in-kerass-fit-method/#:~:text=Steps%20Per%20Epoch&text=It%20is%20used%20to%20define,size%20you%20can%20ignore%20it.*
 
 
  ### note and cool resources
-- speedy notes, pardon the mad typos!
+
+ - https://androidkt.com/category/keras/
+- https://www.tensorflow.org/resources/learn-ml
 - https://developers.google.com/machine-learning/crash-course/reducing-loss/video-lecture
 - https://classroom.udacity.com/courses/ud187/lessons/e0c70c77-5584-4f83-a47b-a67a6172ae75/concepts/ac6c6991-8096-4c7a-bad1-706f7e3d36f1
 - caching training data makes training faster ``` train_dataset =  train_dataset.cache()
  ```
+- speedy notes, pardon the mad typos!
