@@ -1,8 +1,14 @@
+# Notes about the jupyter notebooks
 
-# View them in this order for beginner to more advanced content
+These are a mix of references that I either wrote or got from various courses and places.
+ Compilation of this content started June 2020
+
+## View them in this order for beginner to more advanced content
 
 1. Basics_Celsius_to_fahrenheit.ipynb
 2. Dense_Exp_Fashion_MNIST.ipynb
 3. Cats_vs_dogs_overfitting.ipynb
 4. Classifying_flowers_with_data_augmentation_.ipynb
 5. Transfer_learning_MobileNet_Cats_vs_Dogs_revisited.ipynb
+6. Flower_classify__transfer_learning.ipynb
+7. saving_and_loading_models.ipynb (This is downloaded from the course colab but put here for ref)
