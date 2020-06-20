@@ -88,8 +88,22 @@ https://mc.ai/auto-encoder-in-biology/*
     validation_steps does the same thing only with validation data, while the steps_per_epoch does it only for training data
     ![](screenshots/2020-06-07-21-37-39.png)*https://androidkt.com/how-to-set-steps-per-epoch-validation-steps-and-validation-split-in-kerass-fit-method/#:~:text=Steps%20Per%20Epoch&text=It%20is%20used%20to%20define,size%20you%20can%20ignore%20it.*
 
+### Recurrent neural nets RNNS
+The input to RNN is 3d, if u have a batch of 4 and each batch has 30 elements and each element has a value so the shape is (4, 30,1) .
+
+At each element the memory cell takes a 4 by 1 matrix as input along with the state matrix from the previous elemnt. 
+
+ The full output of the RNN is 3d just like the input, the dimientions are" batch size, num of elements, output dim (number of nuerons), assuming we have 3 neurons the output will be of shape (4, 30 ,3)
+
+ #### ReLu is bad with RNNs!! https://youtu.be/gREXBl-SnLM?t=275
 
  ### note and cool resources
+
+ - three tricks for better learning:
+   1.  Using learning rate schedule to figure the best learning rate (look at tricks in time series forcast)
+   2.  Early stopping
+   3.  using checkpoints callback to save your best model during training 
+
 
  - https://androidkt.com/category/keras/
 - https://www.tensorflow.org/resources/learn-ml

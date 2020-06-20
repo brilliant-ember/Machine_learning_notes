@@ -24,6 +24,7 @@
 <br>
 
 ## Convolution operation with RGB images 
+
 ![](screenshots/2020-05-31-15-39-55.png)*1 3d filter(kernal) per convoluted output https://youtu.be/iDH3LCZwL5M?t=265*
 ![](screenshots/2020-05-31-15-43-43.png)
 ![](screenshots/2020-05-31-15-44-27.png)*it is 1 image, and we apply many 3d filters on it, for each filter we get one 2d convoluted output (filtered image). Now after all filters are done we get the num of convoluted is images equal to the number of filtes used. We take all of those covoluted outputs and put them into one matrix(tensor) with depth equal to num_of_filters https://youtu.be/iDH3LCZwL5M?t=269*
@@ -37,8 +38,25 @@
 
 - ### *DropOuts* A great way to help with reduce overfitting. Is when we turn off neurons during training, so other neurons can contrinute more
   
+### 1D conv net and Time series forcasting
 
+- 1D conv net slide the filter throu a list rather than through an image matrix(conv 2d) which makes them great for analyzing series and time forcasting
+- ![](screenshots/2020-06-19-19-41-10.png)*https://youtu.be/CG2V--A7Ebk?t=79*
+- We can use causel padding to add the padding at the begining so that outputs at time t depend on inputs at time t. rather than using "same" padding which may cause the output at t to depend on input after time t. So for Forcasting it is important to use *Causel padding* In otherwords, Causel padding prevents the model form peaking into the future.
 
+### Dialted Convolution
+
+These introduce holes in a CNN filter to get more coverage, a standared  3*3 keranal (filter) has a dilation of 1. The more we increase dialtion the more "seprate" the filter is
+![](screenshots/2020-06-20-09-33-48.png)*https://youtu.be/0Lg_V0Um-1Q?t=84*
+- Usage:
+  - Dialted convs are used in WaveNet archtecture (Text to speech)
+  - are good of sequences of input (time series like audio, text ...etc)
+- Why?
+  - it gives a global view of the data piece, but with less parameters
+  - Boarder view, like bird eye view, so u see the bigger picture but with less details
+  - more efficient
+- In WaveNet the had dialtion the keeps doubling for their time series , a dilation of 2 means that you skip every other time step https://youtu.be/VSU33wFHb0o?t=18, Dilation of 4 means that you skip 3 time steps out of 4.
+  - ![](screenshots/2020-06-20-09-45-03.png)*A WaveNet like archetecture, made of 6 convoltinoal layers with growing dialation and the final conv layer with filter 1 and strid 1 is equal to a dense layer https://youtu.be/VSU33wFHb0o?t=100*
 
 ## Extra refs
 - a guide on cnn https://towardsdatascience.com/a-comprehensive-guide-to-convolutional-neural-networks-the-eli5-way-3bd2b1164a53
