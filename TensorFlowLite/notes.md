@@ -11,3 +11,7 @@ TFlite offers 2 types of post training quanization seen in the image
  2.  `DEFAULT` quantizes the activation outputs and weights
 
 ![](screenshots/2020-07-04-01-16-16.png)*https://youtu.be/J3NiJkgkVd8?t=85*
+
+
+## Cool resources
+https://www.tensorflow.org/lite/models/
