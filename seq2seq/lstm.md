@@ -105,3 +105,4 @@ units is how many LSTM cell calls we have, return sequ is if we want to return t
 
 The videos's notebook example for LSTM is called 'LSTM_Intro_Youtube.ipynb'
 
+
