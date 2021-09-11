@@ -2,7 +2,44 @@
 
 https://youtu.be/7nnSjZBJVDs?list=PLQflnv_s49v_i1OVqE0DENBk-QJt9THjE&t=707
 
+An RNN is good at handeling sequences, say you have a sequence of words (the weather is nice) and a train of 4 RNN "cells" where the each cell has a hidden state that we first initalize randomly. Each cell takes a word as input (the->cell1, weather->cell2 ...)  but each cell also takes the previous cell's hidden state as input too! and as the model trains on many different sentences we update those hidden states. 
+
+The default RNN layer is to return the final hidden state for every RNN cell, or if you're batching your data the output is (batch_size, num_cells).
+
+We can make the RNN return the hidden state of every input word instead of just the last one by using the argument `return_sequence=True`
+
+RNN cells also have an internal state, that is used inside the cell. It is not usually useful unless you want to retain the internal state for use in resumeing training later, or if you want to train another RNN, this is usually used for encoder/decoder models where you return the state of the encoder and feed that state to the decoder. U can return the state using `return_state=True`
+
+#### LSTMs are great at sequences but they are very sensitive to the initial random weight initalization, you may find "swings" in accuracy every time you initalize the random weights(states) of the LSTM thats why it is worth it to save the best weights you start out with
+
 the LSTM is a type of RNN that "solves" the vanishing gradient problem, which is that the model forgets training data that is not recent ie it "vanishes" LSTM introduces a memory component to address this problem.
+
+An LSTM needs 3 dimintion input
+
+- from one website explanation
+
+    LSTM expects input data to be a 3D tensor such that:
+    [batch_size, timesteps, feature]
+    batch_size how many samples in each batch during training and testing
+    timesteps means how many values exist in a sequence. For example in [4, 7, 8, 4] there are 4 timesteps
+    features: how many dimensions are used to represent a data in one time step. For example, if each value in the sequence is one hot encoded with 9 zero and 1 one then feature is 10
+    Example:
+    In raw format:
+    X=[4, 7, 8, 4]
+    In one hot encoded format with 10 dimensions (feature = 10):
+    X=[[0 0 0 0 1 0 0 0 0 0]
+    [0 0 0 0 0 0 0 1 0 0]
+    [0 0 0 0 0 0 0 0 1 0]
+    [0 0 0 0 1 0 0 0 0 0]]
+
+- from another site
+
+    *Samples*. One complete sequence is considered as one sample. A batch may contains one or more samples. In NLP, if we are dealing with the text at sentence level (means taking one sentence at a time), then our sample size will be one.
+    *Time Steps*. It can be considered as the number of times, we feed to the model. In the above discussed one-sentence case of NLP, the number of words in the sentence will be equivalent to the time-steps.
+    *Features*. It represents the number of columns of each sample. In the above one sentence case of NLP, we will obtain it through embedding. Generally, we use word2vec, Glove, etc. to get the word embeddings. Thus, in this case the dimension of the embedding will considered as feature size.
+
+   Features is also the number of observations per timestep
+
 
 # Theory for 1 single LSTM cell
 
