@@ -40,6 +40,7 @@ An LSTM needs 3 dimintion input
 
    Features is also the number of observations per timestep
 
+Look at my python notebook lstm_inputShape.ipynb for better explanation
 
 # Theory for 1 single LSTM cell
 

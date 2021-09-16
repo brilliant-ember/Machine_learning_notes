@@ -1,6 +1,6 @@
 # Embedding
 
-We want to represent text as integers so out ML can read it.
+We want to represent text as integers so our ML can read it.
 
 we can use one hot encoding, but then  the matrix will be HUGE depending on how many dimentions you have.
 So we use an embedding layer. An embedding layer trains with your model it basically finds relationships in your data words that are related to each other will be encoded as vecotors that are closer to each other in the 3d space.
