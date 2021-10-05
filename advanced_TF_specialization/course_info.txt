@@ -1,0 +1,1 @@
+ course url https://www.coursera.org/specializations/tensorflow-advanced-techniques#courses
