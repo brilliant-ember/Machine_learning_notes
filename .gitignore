@@ -2,5 +2,6 @@ advanced_TF_specialization/dataset
 advanced_TF_specialization/Tensorflow-Advanced-Techniques-Solutions-main.zip
 advanced_TF_specialization/Tensorflow-Advance-main-other-student.zip
 seq2seq/tensorboard_log_dir/
-
+advanced_TF_specialization/course_1_labs/__pycache__
+seq2seq/__pycache__
 
