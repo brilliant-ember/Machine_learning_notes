@@ -74,6 +74,15 @@ https://mc.ai/auto-encoder-in-biology/*
 
 
 
+### Stacking vs Concatnating 
+
+Concatnating two tensors is like using `append()` function on a specific axis. For example if you have 2 tensors of shape (3,) and then you append them the new tensor will have shape (6,).
+
+Stacking on the other hand takes them and puts them on top of each other on a new axis, following the same example of having 2 tensors of shape (3,). If you stack them you will get a new tensor of shape (2, 3). The stack function took the two tensors and created a new dimiention where it appended the whole two tensors to it.
+
+![](screenshots/2021-09-29-08-56-40.png)
+![](screenshots/2021-09-29-08-57-08.png)
+
 ### Misc
 - model = neural net
 - Kernal = weights and in CNN it's the filter vaules (look at CNN notes for more info)

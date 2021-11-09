@@ -49,3 +49,11 @@ Usual encoder-decoder model goes like this:
 
 In teacher forcing we use the output as an input to the model, so we can't use the model we trained for inference directly. We need to create a new model using the weights of the trained model. The input to the teacher forced model is [encoder_input, decoder_input] but in the inference model the input should only be encoder input. And we use the decoder output from step t as a decoder input for step t + 1
 
+
+---
+
+## Audio files
+
+Audio file in one second has 44k samples, and that's huge, WaveNet arch uses raw audio but it is slow, this is because audio files are so big that our models need to be big too with many learnable parameters. That's why using a spectogram for audio data is not a bad idea. And a Mel Spectogram is even more compressed since we only take the frequencies precievble by a human ear.
+
+The Encoder is basically a dimienaality reducion. It can learn non-linear relationships making it a powerful compression algorithm. But for it to work the data needs to have dependence accorss it's dimientions. The other sort of compression algs is PCA which can learn linear relationships, while Encoders can do non-linear relationships. The encoder can capture more complex relationships, however it will perform just as good as PCA if the encoder uses linear activation functions. So we gotta use nonlinear functions. So the activation function is the advantage that encoders have  ![](screenshots/2021-10-03-14-08-50.png) ![link](https://youtu.be/xwrzh4e8DLs?list=PL-wATfeyAMNpEyENTc-tVH5tfLGKtSWPp&t=356)

@@ -8,6 +8,11 @@ import matplotlib.pyplot as plt
 EARLYSTOP = tensorflow.keras.callbacks.EarlyStopping(
                 monitor="accuracy", mode="auto", restore_best_weights=True, patience=2)
 
+TENSORBOARD = tensorflow.keras.callbacks.TensorBoard(
+        log_dir = 'tensorboard_log_dir',
+        histogram_freq = 1,
+        embeddings_freq = 1)
+
 
 
 ###
