@@ -27,6 +27,9 @@ def check_gpu_tensorflow(cuda_only = True):
     print("Tensorflow version ", tensorflow.__version__)
     print("Keras version ", tensorflow.keras.__version__)
     
+def use_cpu_only():
+    # this hides the gpu so tf can only use cpu
+    tensorflow.config.set_visible_devices([], 'GPU')
     
 # generate a random sequence of integers
 def generate_sequence(length, num_unique):
