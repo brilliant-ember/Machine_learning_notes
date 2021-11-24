@@ -40,6 +40,9 @@ https://www.coursera.org/learn/custom-distributed-training-with-tensorflow/lectu
 
 Derivative is the rate of change at a certain point, in other words it is the slope at a point or how steep the slope is at point (x,y).
 
+
+Gradient in the context of reducing loss. taking the gradient tells us if the function is headed up or down, we want it to go down to minimize loss.
+
 Gradient is a vector, it points in the direction of the steepest slope. If you have a function of f(x,y,z) or even more than 3 variables, and you take the partial derivative of the function with respect to each variable you will have a vector telling you in which direction (x,y,z) the slope is steepest, and this is called the gradient.
 
 The gradient can be either positive or negative depending on the sign of the gradient. Positive gradient tells you the steepest slope upwards and negative gradient tells you the steepest slope downwards.
@@ -79,4 +82,32 @@ The negative of this gradient will point in the direction of optimal value for w
 
 The assign sub that updates the parameter w and b, 
 The math for back propagation is `w = w - gradient(loss,w)*learning rate` 
-the assign_sub does that equation exactly
+the assign_sub does that equation exactly.
+
+![](screenshots/2021-11-23-19-38-13.png)
+
+
+-- Comparing gradient tape with manual derivation
+
+
+Operations within a gradient tape scope are recorded if at least one of their variables is being watched.
+![](screenshots/2021-11-23-19-43-24.png)
+
+
+Now we do the same thing manually:
+
+![](screenshots/2021-11-23-19-47-07.png)
+![](screenshots/2021-11-23-19-46-19.png)
+![](screenshots/2021-11-23-19-48-04.png)
+![](screenshots/2021-11-23-19-48-59.png)
+![](screenshots/2021-11-23-19-49-24.png)
+
+
+So in summary Gradient tape helps us do derivatives in a neat way.
+
+
+
+When we call the `tape.gradient()` the resources occupied by the gradient are immediately released, to make the persist we use `persistant=True`
+![](screenshots/2021-11-23-19-51-24.png)
+
+![](screenshots/2021-11-23-19-53-18.png)
