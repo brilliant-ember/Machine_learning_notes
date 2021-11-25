@@ -157,4 +157,7 @@ A mean square loss function, has the shape of a square function since it is squa
 
 Say that the ball is the loss we got when we calculated the the mean square loss using the current weights and biases ![](screenshots/2021-11-25-04-38-38.png)
 
-The negative gradient shows us the direction we should go to inorder ot reduce loss
+The negative gradient shows us the direction we should go to in order to reduce loss
+![](screenshots/2021-11-25-04-42-47.png)
+![](screenshots/2021-11-25-04-48-26.png)
+![](screenshots/2021-11-25-04-49-57.png)
