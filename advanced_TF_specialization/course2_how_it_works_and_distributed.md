@@ -2,7 +2,11 @@ Custom and Distributed Training with TensorFlow
 
 https://www.coursera.org/learn/custom-distributed-training-with-tensorflow/lecture/poLBG/a-conversation-with-andrew-ng-overview-of-course-2
 
-
+<style>
+img{
+  max-width: 80%;
+}
+</style>
 
 #  Week 1
 ##  What is a tensor
@@ -137,3 +141,20 @@ Here is a short piece of the doc string
     GradientTapes can be nested to compute higher-order derivatives
 
     ```
+
+
+## Week 2 Custom Training Loops
+
+![](screenshots/2021-11-25-04-24-42.png)
+![](screenshots/2021-11-25-04-23-11.png)
+![](screenshots/2021-11-25-04-33-29.png)
+![](screenshots/2021-11-25-04-34-19.png)
+
+### How does gradients and derivatives help us to minimize loss ie how an optimizer function works.
+
+A mean square loss function, has the shape of a square function since it is squared
+![](screenshots/2021-11-25-04-37-14.png)
+
+Say that the ball is the loss we got when we calculated the the mean square loss using the current weights and biases ![](screenshots/2021-11-25-04-38-38.png)
+
+The negative gradient shows us the direction we should go to inorder ot reduce loss
