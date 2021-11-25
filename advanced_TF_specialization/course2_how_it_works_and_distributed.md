@@ -111,3 +111,29 @@ When we call the `tape.gradient()` the resources occupied by the gradient are im
 ![](screenshots/2021-11-23-19-51-24.png)
 
 ![](screenshots/2021-11-23-19-53-18.png)
+
+
+Here is a short piece of the doc string 
+
+    ``` Python
+
+    class GradientTape(persistent=False, watch_accessed_variables=True)
+    ```
+
+    Record operations for automatic differentiation.
+
+    Operations are recorded if they are executed within this context manager and at least one of their inputs is being "watched".
+
+    Trainable variables (created by tf.Variable or tf.compat.v1.get_variable, where trainable=True is default in both cases) are automatically watched. Tensors can be manually watched by invoking the watch method on this context manager.
+
+    For example, consider the function y = x \* x. The gradient at x = 3.0 can be computed as:
+
+    ``` python
+    x = tf.constant(3.0)
+    with tf.GradientTape() as g:
+      g.watch(x)
+      y = x * x
+    dy_dx = g.gradient(y, x) # Will compute to 6.0
+    GradientTapes can be nested to compute higher-order derivatives
+
+    ```
