@@ -1,1 +1,11 @@
  course url https://www.coursera.org/specializations/tensorflow-advanced-techniques#courses
+
+Solutions and labs githubs
+- https://github.com/sasidhar-programmer/Tensorflow_Advance_Techniques
+- https://github.com/shreyasvedpathak/Tensorflow-Advanced-Techniques-Solutions
+- https://github.com/anhtuan85/TensorFlow-Advanced-Techniques-Specialization
+- https://github.com/ANKITPODDER2000/Tensorflow-Advance/tree/main/Custom_Models_Layers_and_Loss_Functions_with_TensorFlow/Week1
+
+Other useful repos
+- https://github.com/stephenjohnmoore/Coursera-Deep-Learning
+- https://github.com/MaheshBabu11/DeepLearning.AI-TensorFlow-Developer-Course/tree/main/4%20-%20Sequences%2C%20Time%20Series%20and%20Prediction
