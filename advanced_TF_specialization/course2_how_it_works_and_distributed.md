@@ -161,3 +161,19 @@ The negative gradient shows us the direction we should go to in order to reduce 
 ![](screenshots/2021-11-25-04-42-47.png)
 ![](screenshots/2021-11-25-04-48-26.png)
 ![](screenshots/2021-11-25-04-49-57.png)
+
+
+
+<br>
+
+
+- We use `SparseCategoricalCrossentropy()` when the category labels are integers and not one-hot encoded, it is a bit more efficent than regular `CategoricalCrossentropy()`
+
+- Note: during batching if data doesn't batch evenly then the final batch will be "incomplete" and this will make the batch use data from other batches, this will create a bias or a skew in the loss calculation of the final batch
+
+<br>
+
+![](screenshots/2021-11-28-16-57-02.png)
+![](screenshots/2021-11-28-17-01-42.png)
+![](screenshots/2021-11-28-17-27-33.png)
+
