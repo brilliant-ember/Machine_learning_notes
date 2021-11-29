@@ -18,3 +18,5 @@ https://www.coursera.org/learn/custom-distributed-training-with-tensorflow/lectu
 - ![](screenshots/2021-11-14-14-52-57.png)
 - You can't reshape a tf.Variable using the `shape` keyword argument. However, you can reshape a tf.constant using it!
 - ![](screenshots/2021-11-14-14-54-29.png)
+- ![](screenshots/2021-11-14-14-57-22.png)
+- 
