@@ -178,3 +178,14 @@ The negative gradient shows us the direction we should go to in order to reduce 
 ![](screenshots/2021-11-28-17-27-33.png)
 
 ![](screenshots/2021-11-29-01-27-07.png)
+
+---
+
+## Week 3 Graph model
+
+![](screenshots/2021-12-02-03-24-10.png)
+![](screenshots/2021-12-02-03-26-18.png)
+
+Autograph takes python code and turns it into a graph
+
+
