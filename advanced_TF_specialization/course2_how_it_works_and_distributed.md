@@ -264,3 +264,8 @@ network of devices
 ![](screenshots/2021-12-04-13-27-23.png)
 ![](screenshots/2021-12-04-13-29-58.png)
 
+
+### Other strategies
+1. single device `tf.distribute.OneDeviceStrategy` this uses a single machine but treats data as if it was distributed, this strategy is good if you want to test your distribution on a single machine first before you go on and try to distribute across others.
+2. Multiworker mirrored strategy ![](screenshots/2021-12-04-15-00-41.png)![](screenshots/2021-12-04-15-01-53.png)
+3. CentralStorageStrategy and Param server strategy ![](screenshots/2021-12-04-15-02-45.png)
