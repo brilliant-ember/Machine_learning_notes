@@ -233,3 +233,34 @@ Note that in graph based functions we need to sepreate the declaration of the va
 
 however it is okay to use aliases like this
 ![](screenshots/2021-12-04-13-05-39.png)
+
+
+## Week 4 Distribution stratigies
+
+distributed training in tf is built around data parallelism, we replicate the model on different devices and each device has a different slice of the trainig data
+
+![](screenshots/2021-12-04-13-13-20.png)
+
+Some terms in distributed learning:
+1. Device: cpu, gpu, tpu. 
+2. Replica: a replica of our model, each replica runs in a sepreate device. for example, replicate the model on the cpu and gpu to train them in parallel
+3. Worker: a piece of software running on the machine that trains the models on that machine (across multiple devices if applicable)
+4. Mirrored variable: variables you want to keep sync across all replicas
+
+### There are many distribuion stratigies
+![](screenshots/2021-12-04-13-21-17.png)
+
+In synchronous training all workers train at the same time and aggregate weights at each steps using an all-reduce algorithm
+
+Asynchronous trainig all workers train independantly on input data and update variables using a parameter server.
+
+
+![](screenshots/2021-12-04-13-25-57.png)
+
+
+### Mirrored strategy
+It is the most common strategy since devs are more likely to have a machine with multiple GPUs instead of a
+network of devices
+![](screenshots/2021-12-04-13-27-23.png)
+![](screenshots/2021-12-04-13-29-58.png)
+
