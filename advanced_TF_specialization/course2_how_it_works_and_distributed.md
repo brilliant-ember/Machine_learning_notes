@@ -188,4 +188,32 @@ The negative gradient shows us the direction we should go to in order to reduce 
 
 Autograph takes python code and turns it into a graph
 
+To generate graph code, write your function and then wrap it by using a special function from tensorflow,
+you can do that using the decorator `@tf.function`, wrapping with a decorator allows us to "combine" two functions
 
+For example 
+
+``` python
+
+@tf.function
+def add(a,b):
+  return a+b
+
+```
+
+Now the decorated add function has graph code, we can look at it by using
+`print(tf.autograph.to_code(add.python_function))`
+
+
+![](screenshots/2021-12-04-05-50-20.png)
+
+Furthermore, any function called from within an annotated function will get called by using graph mode
+![](screenshots/2021-12-04-05-51-55.png)
+
+
+GraphMode speeds up code that has a lot of small ops for example this fizzbuzz game can be faster if it is using graph mode, as it has all those conditions and if-else flows.
+![](screenshots/2021-12-04-05-55-35.png)
+
+
+If we take a look at fizzbuzz graph code, it will be very hard to code
+![](screenshots/2021-12-04-05-57-03.png)
