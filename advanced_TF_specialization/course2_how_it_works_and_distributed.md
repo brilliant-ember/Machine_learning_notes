@@ -217,3 +217,19 @@ GraphMode speeds up code that has a lot of small ops for example this fizzbuzz g
 
 If we take a look at fizzbuzz graph code, it will be very hard to code
 ![](screenshots/2021-12-04-05-57-03.png)
+
+Conditionals 
+
+![](screenshots/2021-12-04-12-42-15.png)
+![](screenshots/2021-12-04-12-48-56.png)
+
+Regular print functions are not graph aware, but tf.print is
+![](screenshots/2021-12-04-12-52-15.png)
+
+Note that in graph based functions we need to sepreate the declaration of the variables and the function logic, othereise we run into errors:
+
+<p><img src='screenshots/2021-12-04-12-54-32.png'/> <img src='screenshots/2021-12-04-12-55-15.png'/></p>
+![](screenshots/2021-12-04-13-04-56.png)
+
+however it is okay to use aliases like this
+![](screenshots/2021-12-04-13-05-39.png)
