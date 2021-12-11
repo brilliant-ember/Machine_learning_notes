@@ -1,0 +1,61 @@
+{
+  "citation": "@ONLINE {horses_or_humans,\nauthor = \"Laurence Moroney\",\ntitle = \"Horses or Humans Dataset\",\nmonth = \"feb\",\nyear = \"2019\",\nurl = \"http://laurencemoroney.com/horses-or-humans-dataset\"\n}",
+  "description": "A large set of images of horses and humans.",
+  "downloadSize": "161055054",
+  "fileFormat": "tfrecord",
+  "location": {
+    "urls": [
+      "http://laurencemoroney.com/horses-or-humans-dataset"
+    ]
+  },
+  "moduleName": "tensorflow_datasets.image_classification.horses_or_humans",
+  "name": "horses_or_humans",
+  "schema": {
+    "feature": [
+      {
+        "name": "image",
+        "shape": {
+          "dim": [
+            {
+              "size": "300"
+            },
+            {
+              "size": "300"
+            },
+            {
+              "size": "3"
+            }
+          ]
+        },
+        "type": "INT"
+      },
+      {
+        "name": "label",
+        "type": "INT"
+      }
+    ]
+  },
+  "sizeInBytes": "161055054",
+  "splits": [
+    {
+      "name": "train",
+      "numBytes": "149451512",
+      "shardLengths": [
+        "514",
+        "513"
+      ]
+    },
+    {
+      "name": "test",
+      "numBytes": "11534911",
+      "shardLengths": [
+        "256"
+      ]
+    }
+  ],
+  "supervisedKeys": {
+    "input": "image",
+    "output": "label"
+  },
+  "version": "3.0.0"
+}
