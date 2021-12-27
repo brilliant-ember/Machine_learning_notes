@@ -21,3 +21,30 @@ If we want to use transfer learning with ResNet  model and the CIFAR dataset
 
 CIFAR images are 32x32 but the resnet model expects 224x224 so we need to use an upsampling layer
 ![](screenshots/2021-12-05-11-07-58.png)
+
+
+
+## Week 2 object detection and sliding windows
+
+If you have an image that has multiple instances of the object you want to detect, and it also has empty space and other things that you don't want to detect you have to be smarter about how you do your object detection
+
+![](screenshots/2021-12-27-08-04-28.png)
+
+There are two stages to Object Detection:
+1. Region proposal (what region of the image you will pass to your classifier, you can't pass all of it if it is a big image because that would be too inefficient)
+2. Object detection/classification
+   
+
+There are few ways to detect an object within an image:
+   1. Scanning the image with a sliding window that scans the image as the window slides, similar to convolution in how it scans. We try to classify what's in the window and ignore everything else :
+      -  <span><img style="max-width:30%" src="screenshots/2021-12-27-08-37-42.png" /> <img style="max-width:30%" src="screenshots/2021-12-27-08-39-53.png"/> </span>
+      - We can play with the size of the window
+  
+  2. Similar to sliding window but here we change the size of the image to work with less pixels, and then we can expand the image. Or we can calculate a union with different sized images detected objects to maximize accuracy
+     - ![](screenshots/2021-12-27-08-45-49.png)
+  3. Selective search, this method takes longer but it has good results. The algorithm makes proposals where the object is and then it combines the squares that contain the image
+     - ![](screenshots/2021-12-27-08-47-43.png)
+
+**R-CNN**
+aka Regional CNN implements selective search on an image
+![](screenshots/2021-12-27-08-51-48.png)
