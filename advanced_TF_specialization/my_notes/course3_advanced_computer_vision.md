@@ -48,3 +48,25 @@ There are few ways to detect an object within an image:
 **R-CNN**
 aka Regional CNN implements selective search on an image
 ![](screenshots/2021-12-27-08-51-48.png)
+
+
+**RetinaNet**
+
+Can predict bounding box around the image as well as classify the image. This model has its Model architecture separate from it's trained weights, this is often done in research. So we will have to load the model arch from a configuration file then load the weights from a checkpoint and combine it with the model if we want to use the model for transfer learning.
+
+We want to retrain that pretrained model and load some of the pretrained weights saved in a checkpoint. All in order to predict and classify a novel class that wasn't part of the original training data of the model.
+
+Since the model has 2 heads: 1. a bounding box predictor and a 2. classifier we will follow these steps to reuse the model:
+1. take the base layers and the box prediction head as is
+2. take the classification head and separate it from it's feature extractor, we will use the feature extractor only and discard the classification head 
+3. then pass the model to checkpoint, then we will be able to restore pre-trained weights 
+![](screenshots/2021-12-29-07-47-56.png)
+
+
+We need to decide which trainable variables we're going to train, to see all trainable variables we can do code like this, note that RetinaNet is a huge model so we'll have a lot of trainable params, this is just a sample:
+![](screenshots/2021-12-29-10-57-00.png)
+
+To choose which ones to fine tone we do something like this. Remember that since the weights are already loaded form a checkpoint we don't have to train from scratch we will use the existing weight values as a starting point when we fine tone the trainable parameters we want.
+![](screenshots/2021-12-29-10-58-37.png)
+
+
