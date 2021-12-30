@@ -21,3 +21,16 @@ If we want to use transfer learning with ResNet  model and the CIFAR dataset
 
 CIFAR images are 32x32 but the resnet model expects 224x224 so we need to use an upsampling layer
 ![](screenshots/2021-12-05-11-07-58.png)
+
+
+
+### Evaluating object localization
+if you want to detect where an object of intrest is in the image (localize it in the image) you need to define a loss value that defines how well you can predict where the object is in the image, ie you're trying to predict the bounding box around an object of interest, here's what the triaing data would look like ![](screenshots/2021-12-30-06-33-12.png)
+
+
+
+The loss we use is IOU or intersection over union, which is a value from 0 to 1 telling us what's the percentage of intersection, if we predicted the bounding box (bbox) correctly we'll have a big intersection, if we did it wrong we will have no or little intersection
+
+![](screenshots/2021-12-30-06-28-51.png)
+
+![](screenshots/2021-12-30-06-31-06.png)
