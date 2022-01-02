@@ -82,3 +82,65 @@ To choose which ones to fine tone we do something like this. Remember that since
 ![](screenshots/2021-12-29-10-58-37.png)
 
 
+
+## Week 3 Image segmentation
+
+![](screenshots/2022-01-02-10-34-33.png)
+
+example  of training data that can classify the class "people"
+![](screenshots/2022-01-02-10-35-08.png)
+
+
+The encoder for image tasks is usually CNN, the earlier feature extraction layers extract low level  shapes such as lines,  but deeper layers in the CNN extract higher level features such as eyes .. etc
+![](screenshots/2022-01-02-10-35-40.png)
+
+![](screenshots/2022-01-02-10-42-30.png)
+
+FCN = fully convolution network
+
+This compares the different strides in the CNN feature extractor, the smaller the stride the more details we have.
+![](screenshots/2022-01-02-10-44-30.png)
+
+![](screenshots/2022-01-02-10-47-00.png)
+
+This is an example of average pooling, we notice that the 2x2 pooling window with stride of 2x2 results in a downsampled pooled result  of half  the number of columns and rows of the input tensor
+
+
+![](screenshots/2022-01-02-10-49-09.png)
+
+![](screenshots/2022-01-02-10-49-22.png)
+
+
+So if we pool 5 times  we reduce the image  by a factor of 2^5  ie  by 32 times, so  we need to upsample the image later by a factor of 32.
+
+
+![](screenshots/2022-01-02-10-59-11.png)
+
+![](screenshots/2022-01-02-11-00-21.png)
+
+![](screenshots/2022-01-02-11-01-07.png)
+
+![](screenshots/2022-01-02-11-01-54.png)
+
+
+Transpose convolution (deconvolution) is a way to reverse convolution, but because of data loss in the pooling layers or lost in the edges the restored matrix will be close but not exactly the same  as the original matrix before convolution.
+
+![](screenshots/2022-01-02-11-03-02.png)
+
+Using 1D convolution with stride of becomes an easy way to reduce the dimensionality of our tensor since the only thing that changes is the number of filters
+![](screenshots/2022-01-02-13-41-25.png)
+
+We can reduce the dimensionality from 64 to 32 as we see here (done in the camvid reduced dataset)
+
+![](screenshots/2022-01-02-13-41-47.png)
+
+
+### Evaluating IOU loss for segmentation
+![](screenshots/2022-01-02-13-46-56.png)
+![](screenshots/2022-01-02-13-47-09.png)
+![](screenshots/2022-01-02-13-47-18.png)
+![](screenshots/2022-01-02-13-48-18.png)
+![](screenshots/2022-01-02-13-48-29.png)
+![](screenshots/2022-01-02-13-48-55.png)
+
+![](screenshots/2022-01-02-13-49-21.png)
