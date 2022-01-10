@@ -144,3 +144,6 @@ We can reduce the dimensionality from 64 to 32 as we see here (done in the camvi
 ![](screenshots/2022-01-02-13-48-55.png)
 
 ![](screenshots/2022-01-02-13-49-21.png)
+
+
+![](screenshots/2022-01-09-11-00-52.png)
