@@ -154,3 +154,14 @@ We can reduce the dimensionality from 64 to 32 as we see here (done in the camvi
 Class activation gives us a 'heatmap' of the areas in the image that had the highest impact on the detection, in this image the darker pixels are the pixels that contributed most heavily on the prediction ![](screenshots/2022-01-14-18-05-55.png)
 
 This is useful because it tells us what the model was looking at when it made the prediction, and this can help us determine why the model might have messed up, for example this cats vs dogs model learned to classify a cat vs dog based on the eyes of the animal, and when the eyes were not visible enough (one eye was hidden) the model predicted wrong, so we can use this insight to create a training data that forces the model to learn other features of the cat and dog, so may be have training images for the cats and dogs from behind.
+
+
+How it works is as follows:
+![](screenshots/2022-01-22-10-20-44.png)
+![](screenshots/2022-01-22-10-36-39.png)
+
+1. we first get the features from the last convolution layer in the model
+2. we get the predicted category from the model (this is the output of the dense layer)
+3. we grab the weights from the global average pooling layer, it is just before the classification dense layer  and it has one value per feature (learned weights for each feature), so we can get the weights corresponding to the prediction.
+4. we scale the features (interpolate scale) to the required size
+5. dot product the features and the weighting them from the class activation from the model to produce the cam (class activation map) 
