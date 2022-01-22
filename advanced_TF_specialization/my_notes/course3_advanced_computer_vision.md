@@ -127,7 +127,7 @@ Transpose convolution (deconvolution) is a way to reverse convolution, but becau
 
 ![](screenshots/2022-01-02-11-03-02.png)
 
-Using 1D convolution with stride of becomes an easy way to reduce the dimensionality of our tensor since the only thing that changes is the number of filters
+Using 1D convolution with stride of becomes an easy way to reduce the dimensionality of our tensor since the only thing that changes is the number of filters. So 1D conv can act as a Flatten layer that can filter any arbitrary pixel size into 1x1xnum_filters, thereby it can be used to create networks that can accept input of any size! similar to how the FCN research paper made a network that can accept any image dimensions. 
 ![](screenshots/2022-01-02-13-41-25.png)
 
 We can reduce the dimensionality from 64 to 32 as we see here (done in the camvid reduced dataset)
@@ -147,3 +147,10 @@ We can reduce the dimensionality from 64 to 32 as we see here (done in the camvi
 
 
 ![](screenshots/2022-01-09-11-00-52.png)
+
+
+## Week 4 why does the model detect what it detected
+
+Class activation gives us a 'heatmap' of the areas in the image that had the highest impact on the detection, in this image the darker pixels are the pixels that contributed most heavily on the prediction ![](screenshots/2022-01-14-18-05-55.png)
+
+This is useful because it tells us what the model was looking at when it made the prediction, and this can help us determine why the model might have messed up, for example this cats vs dogs model learned to classify a cat vs dog based on the eyes of the animal, and when the eyes were not visible enough (one eye was hidden) the model predicted wrong, so we can use this insight to create a training data that forces the model to learn other features of the cat and dog, so may be have training images for the cats and dogs from behind.
