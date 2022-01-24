@@ -165,3 +165,45 @@ How it works is as follows:
 3. we grab the weights from the global average pooling layer, it is just before the classification dense layer  and it has one value per feature (learned weights for each feature), so we can get the weights corresponding to the prediction.
 4. we scale the features (interpolate scale) to the required size
 5. dot product the features and the weighting them from the class activation from the model to produce the cam (class activation map) 
+
+So basically you take the outputs of the final convolution layer and then give them "importance' using weights
+then zoom them up to the scale of the image, and finally overlay them on the image.
+
+CAM can tell us what the model is looking at when it's making the prediction, for example this model below looks at the eyes to differentiate between a cat and a dog ![](screenshots/2022-01-24-02-19-26.png)
+
+Now if for some reason the eyes are not visible the model will not accurately predict, for example  this image below there's only one eye, and the model doesn't even consider it, it looks at things on the left side of the image.
+![](screenshots/2022-01-24-02-20-44.png)
+
+The model looked at these features and not the eyes that it learned to use, so it predicted wrong, and even if it predicted right it would be a fluke.
+![](screenshots/2022-01-24-02-21-11.png)
+
+#### Saliency maps  
+
+they are very similar to CAMs, but the way we create them is during the gradient step at comparing with the loss. Usually we take the gradient with respect to the model parameters, but for saliency map we use take a grad
+of the class score with respect to the input image, and the result is a an "activation map" that tells us how much a pixel contributed to the overall score.
+![](screenshots/2022-01-24-02-34-14.png)![](screenshots/2022-01-24-02-34-25.png)
+
+
+These saliency maps tell use that the model is looking at the subject that we want to detect. So this tells us that the model is looking at the right features.
+
+![](screenshots/2022-01-24-02-36-05.png)![](screenshots/2022-01-24-02-36-13.png)
+
+
+This map however seems that the model is looking at the pavement rather than the car we wanna detect. So our  model is not looking at the right thing and we need to change it.
+![](screenshots/2022-01-24-02-38-38.png)
+
+and here is a webapp that overlays the saliency map with the actual image ![](screenshots/2022-01-24-02-45-31.png)
+
+
+how we take the saliency map:
+![](screenshots/2022-01-24-02-47-06.png)
+
+Now that we have the gradients there will be multiple filters in that last layer, so we collapse all that information into a single 2D matrix, we do this by reduce sum ny summing all the channels into one greyscale channel.
+
+*There is an error in the image below* it should be de-normalized tensor, since we undo the normalization by multiplying by 255
+
+![](screenshots/2022-01-24-03-21-49.png)
+
+result with inception model (not same model as above)
+ ![](screenshots/2022-01-24-03-23-58.png)
+
