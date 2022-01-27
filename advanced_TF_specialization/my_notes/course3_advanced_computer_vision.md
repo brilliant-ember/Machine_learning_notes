@@ -207,3 +207,10 @@ Now that we have the gradients there will be multiple filters in that last layer
 result with inception model (not same model as above)
  ![](screenshots/2022-01-24-03-23-58.png)
 
+
+### Combining Saliency and CAMS
+
+Cams looks at the final layer of convolution and figures which part of the image generated feature maps, while Saliency maps tells us which pixels in the input image were most impactful to the final classification (we did that by looking at the gradients of the final layers to see which ones had the steepest curve)
+
+Now if we we combined the two we get GradCam model it's a CAM that uses the gradients of the final classifications. The GradCam model specifically tries to create a CAM and be more accurate where to place it by using saliency.
+![](screenshots/2022-01-27-05-19-44.png)

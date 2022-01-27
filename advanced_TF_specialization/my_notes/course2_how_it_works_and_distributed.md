@@ -38,14 +38,13 @@ img{
 
 ## Gradient Tape
 
-
-
 ### Few words about differentiation and gradient
 
 Derivative is the rate of change at a certain point, in other words it is the slope at a point or how steep the slope is at point (x,y).
 
+Gradient = rise/run in other words (change in y) / (change in x) ie dy/dx. So it's just another word for slope in a way.
 
-Gradient in the context of reducing loss. taking the gradient tells us if the function is headed up or down, we want it to go down to minimize loss.
+Gradient in the context of reducing loss. taking the gradient tells us if the function is headed up or down(positive or negative slope), we want it to go down to minimize loss.
 
 Gradient is a vector, it points in the direction of the steepest slope. If you have a function of f(x,y,z) or even more than 3 variables, and you take the partial derivative of the function with respect to each variable you will have a vector telling you in which direction (x,y,z) the slope is steepest, and this is called the gradient.
 
