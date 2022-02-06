@@ -1,3 +1,9 @@
+<style>
+  img{
+    max-width:60%;
+  }
+</style>
+
 # General Machine learning notes
 
 Gradient is another word for slope, the higher the gradient the steeper the line at a point ie the higher the slope, negative gradietn means that the slope is negative.
@@ -74,37 +80,56 @@ https://mc.ai/auto-encoder-in-biology/*
 
 
 
-### Stacking vs Concatnating 
+### Stacking vs Concatenating 
 
-Concatnating two tensors is like using `append()` function on a specific axis. For example if you have 2 tensors of shape (3,) and then you append them the new tensor will have shape (6,).
+Concatenating two tensors is like using `append()` function on a specific axis. For example if you have 2 tensors of shape (3,) and then you append them the new tensor will have shape (6,).
 
 Stacking on the other hand takes them and puts them on top of each other on a new axis, following the same example of having 2 tensors of shape (3,). If you stack them you will get a new tensor of shape (2, 3). The stack function took the two tensors and created a new dimiention where it appended the whole two tensors to it.
 
 ![](screenshots/2021-09-29-08-56-40.png)
 ![](screenshots/2021-09-29-08-57-08.png)
 
-### Misc
-- model = neural net
-- Kernal = weights and in CNN it's the filter vaules (look at CNN notes for more info)
-- tensor = an array or a matrix of any dimention
-- 1d tensor = an array , 2d matrix = each element in the first array is an array. Ie a matrix , think of it that u hv to dive to arrays to get actual numbers.
+### Recurrent neural nets RNNs
+The input to RNN is 3d, if u have a batch of 4 and each batch has 30 elements and each element has a value so the shape is (4, 30,1) .
+
+At each element the memory cell takes a 4 by 1 matrix as input along with the state matrix from the previous element. 
+
+ The full output of the RNN is 3d just like the input, the dimientions are" batch size, num of elements, output dim (number of nuerons), assuming we have 3 neurons the output will be of shape (4, 30 ,3)
+
+ #### ReLu is bad with RNNs!! https://youtu.be/gREXBl-SnLM?t=275
+
+
+### Various size images in CNN
+ RetinaNet can have various size input image because it has 1D convultional layers that flatten the input. Because  of this RetinaNet can accept ANY size input image!!.
+- *1D conv layers can be used as Flatten Layers* and the advantage is that you control the number of filters, ie the depth of the layer, therefore, the shape will be 1x1xnum_filters and that's something you control so you can have any size input. look at this github issue that talks about this https://github.com/fizyr/keras-retinanet/issues/341
+
+
+### Normalization
+It's when we limit the data range between a set max and min. for example if we train a model to predict cats vs dogs from RGB images, then the pixels will have values between 0 to 255, now this huge variation makes our gradient decedent difficult as it is in the image below
+![](screenshots/2022-02-06-18-14-04.png) [link](https://www.youtube.com/watch?v=DtEq44FTPM4)
+
+Since the mean and variance will be crazy the training will not be as smooth.  Now if we normalize the data by subtracting the mean and dividing by standard deviation we will have a mean of zero, and one std (u can use any preferred normalization method), then after normaliztion our cost function will be a lot nicer allowing us to use larger learning rates and learn faster! as seen below ![](screenshots/2022-02-06-18-16-54.png)[link](https://youtu.be/DtEq44FTPM4?t=203)
+### Batch normalization
+Batch norm is useful because it speeds up training, and makes the model less sensitive to initial weights.
+
+![](screenshots/2022-02-06-18-19-41.png)
+
+
+# Misc
  3d tensor = numbers in an array, in an array, in another array for a total of 3 arrays deep till u get to the numbers.
-- ## CNN can do everything RNN can but better! https://youtu.be/r0Ogt-q956I?t=10499
+ - ### CNN can do everything RNN can but better! https://youtu.be/r0Ogt-q956I?t=10499
 - logit values are what softmax takes as inputs, it then outputs probabilites
 - steps_per_epoch and validation_steps params for compiling a model:
     steps_per_epoch is how many batches of data to run through the model during training, be default it is NONE, meaning it will divide the sample data by the number of batches, or will be 1 if that division fails.
     If you want to use all your data on every epoch, then steps_per_epoch must equal the number of batches, we do that the same way the code below does.
     validation_steps does the same thing only with validation data, while the steps_per_epoch does it only for training data
     ![](screenshots/2020-06-07-21-37-39.png)*https://androidkt.com/how-to-set-steps-per-epoch-validation-steps-and-validation-split-in-kerass-fit-method/#:~:text=Steps%20Per%20Epoch&text=It%20is%20used%20to%20define,size%20you%20can%20ignore%20it.*
+- model = neural net
+- Kernel = weights and in CNN it's the filter values (look at CNN notes for more info)
+- tensor = an array or a matrix of any dimension
+- 1d tensor = an array , 2d matrix = each element in the first array is an array. Ie a matrix , think of it that u hv to dive to arrays to get actual numbers.
 
-### Recurrent neural nets RNNS
-The input to RNN is 3d, if u have a batch of 4 and each batch has 30 elements and each element has a value so the shape is (4, 30,1) .
 
-At each element the memory cell takes a 4 by 1 matrix as input along with the state matrix from the previous elemnt. 
-
- The full output of the RNN is 3d just like the input, the dimientions are" batch size, num of elements, output dim (number of nuerons), assuming we have 3 neurons the output will be of shape (4, 30 ,3)
-
- #### ReLu is bad with RNNs!! https://youtu.be/gREXBl-SnLM?t=275
 
  ### note and cool resources
 
