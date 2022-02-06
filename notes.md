@@ -100,7 +100,7 @@ At each element the memory cell takes a 4 by 1 matrix as input along with the st
 
 
 ### Various size images in CNN
- RetinaNet can have various size input image because it has 1D convultional layers that flatten the input. Because  of this RetinaNet can accept ANY size input image!!.
+ RetinaNet can have various size input image because it has 1D convolutional  layers that flatten the input. Because  of this RetinaNet can accept ANY size input image!!.
 - *1D conv layers can be used as Flatten Layers* and the advantage is that you control the number of filters, ie the depth of the layer, therefore, the shape will be 1x1xnum_filters and that's something you control so you can have any size input. look at this github issue that talks about this https://github.com/fizyr/keras-retinanet/issues/341
 
 
@@ -114,11 +114,13 @@ Batch norm is useful because it speeds up training, and makes the model less sen
 
 ![](screenshots/2022-02-06-18-19-41.png)
 
+Very similar to normalization for training data, but here we optimize the model's params like activations, and not just the training data.
+
 
 # Misc
  3d tensor = numbers in an array, in an array, in another array for a total of 3 arrays deep till u get to the numbers.
  - ### CNN can do everything RNN can but better! https://youtu.be/r0Ogt-q956I?t=10499
-- logit values are what softmax takes as inputs, it then outputs probabilites
+- logit values are what softmax takes as inputs, it then outputs probabilities
 - steps_per_epoch and validation_steps params for compiling a model:
     steps_per_epoch is how many batches of data to run through the model during training, be default it is NONE, meaning it will divide the sample data by the number of batches, or will be 1 if that division fails.
     If you want to use all your data on every epoch, then steps_per_epoch must equal the number of batches, we do that the same way the code below does.
