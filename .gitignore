@@ -6,3 +6,8 @@ advanced_TF_specialization/course_1_labs/__pycache__
 seq2seq/__pycache__
 .vscode/
 
+advanced_TF_specialization/course3_advance_computer_vision/course3_labs/training
+advanced_TF_specialization/course3_advance_computer_vision/course3_labs/training/cp.ckpt.index
+advanced_TF_specialization/course3_advance_computer_vision/course3_labs/training/checkpoint
+advanced_TF_specialization/course3_advance_computer_vision/course3_labs/training/cp.ckpt.data-00000-of-00001
+advanced_TF_specialization/course3_advance_computer_vision/course3_labs/models

@@ -130,13 +130,19 @@ Very similar to normalization for training data, but here we optimize the model'
 - Kernel = weights and in CNN it's the filter values (look at CNN notes for more info)
 - tensor = an array or a matrix of any dimension
 - 1d tensor = an array , 2d matrix = each element in the first array is an array. Ie a matrix , think of it that u hv to dive to arrays to get actual numbers.
-
+- feature map is the output of a (filter * image) operation - term is loosely defined but it usually means what the conv layer produces
+- Trick: to make a model spit out a certain layer's output on top of the model's original output you can define a new model where the input is the same input as the original model and the output is the the same as the original model's output, but add another output which is the output of the layer you want. Say you want to get the output of a certain conv layer to visualize (Class activation map CAM) on top of the classification output. You do it like this:
+  ``` Python
+  inputs = [model.inputs]
+  outputs = [model.get_layer(layer_name).output, model.output]
+  model_grad = Model(inputs, outputs)
+  ```
 
 
  ### note and cool resources
 
  - three tricks for better learning:
-   1.  Using learning rate schedule to figure the best learning rate (look at tricks in time series forcast)
+   1.  Using learning rate schedule to figure the best learning rate (look at tricks in time series forecast)
    2.  Early stopping
    3.  using checkpoints callback to save your best model during training 
 
