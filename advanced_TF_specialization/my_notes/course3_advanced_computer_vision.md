@@ -214,3 +214,24 @@ Cams looks at the final layer of convolution and figures which part of the image
 
 Now if we we combined the two we get GradCam model it's a CAM that uses the gradients of the final classifications. The GradCam model specifically tries to create a CAM and be more accurate where to place it by using saliency.
 ![](screenshots/2022-01-27-05-19-44.png)
+
+
+
+### ZFNet
+Visualization techniques pointed out weaknesses in AlexNet and helped researchers come up with ZFNet.
+
+They used deconvolution for visualization. And had to unpool pooling operations, they did that by storing the location of the max-element in the kernel, they didn't save all the other values but at least they had the max-value and they knew where it was because they stored the location of the max-value in things they call _switches_
+![](screenshots/2022-02-21-14-52-15.png)
+
+The problems visualization with deconv exposed in AlexNet were mainly in layers 1 and layer 2. These problems were:
+1. For layer 1 a mix of extremely high and low frequency was found, so there were no mid-frequencies. And this caused a chain-effect that the network only learned from low or high frequencies, making the learning poorer. ![](screenshots/2022-02-21-14-58-07.png)
+2. Layer 2 Showed antialiasing which blures the outside of the features and are caused by the large strides used in the previous layer convolutions (antialiasing is caused when sampling freq is low) ![](screenshots/2022-02-21-14-59-46.png)
+
+
+AlexNet got modified to reduce those weaknesses mentioned above:
+1. Layer 1 filter size was reduced from 11x11 to 7x7
+2. Stride was reduced to 2 instead of 4.
+
+This is the result, we get more mid frequencies in layer 1, and cleaner features in layer 2
+![](screenshots/2022-02-21-15-02-10.png)
+
