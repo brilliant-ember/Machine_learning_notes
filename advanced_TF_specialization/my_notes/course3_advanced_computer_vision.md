@@ -179,8 +179,8 @@ The model looked at these features and not the eyes that it learned to use, so i
 
 #### Saliency maps  
 
-they are very similar to CAMs, but the way we create them is during the gradient step at comparing with the loss. Usually we take the gradient with respect to the model parameters, but for saliency map we use take a grad
-of the class score with respect to the input image, and the result is a an "activation map" that tells us how much a pixel contributed to the overall score.
+they are very similar to CAMs, but the way we create them is during the gradient step at comparing with the loss. Usually we take the gradient with respect to the model parameters (weights), but for saliency map we use take a grad
+of the class score (loss) with respect to the input image, and the result is a an "activation map" that tells us how much a pixel contributed to the overall score.
 ![](screenshots/2022-01-24-02-34-14.png)![](screenshots/2022-01-24-02-34-25.png)
 
 
