@@ -118,7 +118,8 @@ Very similar to normalization for training data, but here we optimize the model'
 
 
 # Misc
- 3d tensor = numbers in an array, in an array, in another array for a total of 3 arrays deep till u get to the numbers.
+- 3d tensor = numbers in an array, in an array, in another array for a total of 3 arrays deep till u get to the numbers.
+- Parameters of a network mean the weights and bias of a dense layer, or filters in a convolution layer.
  - ### CNN can do everything RNN can but better! https://youtu.be/r0Ogt-q956I?t=10499
 - logit values are what softmax takes as inputs, it then outputs probabilities
 - steps_per_epoch and validation_steps params for compiling a model:

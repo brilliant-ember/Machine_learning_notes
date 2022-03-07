@@ -21,13 +21,17 @@ For example imagine you're drawing a bird, you can either choose a pencil or a p
 ## loss
 We have two losses the style loss and the content loss. if the content loss is 0 then we have the original image. So we try to increase the content loss (counterintuitively) but not increase it too much that we don't recognize the image, but enough that the style and image merge together nicely.
 
-![](screenshots/2022-03-02-07-35-11.png)![](screenshots/2022-03-02-07-54-01.png)
+![](screenshots/2022-03-02-07-35-11.png)
 ![](screenshots/2022-03-02-07-41-05.png) where alfa and beta are weights for each loss.
 
 
 ## Optional concepts
 we don't need to understand it to solve the labs and assignments, but I want to learn it so here it is.
-### The gram matrix
+### The Gram Matrix
+
+For more in depth gram matrix stuff go to `pytorch/lesson6-notes-styleTransfer.md`
+
+![](screenshots/2022-03-02-07-54-01.png)
 ![](screenshots/2022-03-02-08-00-34.png) so the gram matrix is effectively a permutation of cols a1 and a2
 
 In code it looks like this. Note that at the end we can get G using einsum notation which is a very 'short' way of typing everything that was typed above it ![](screenshots/2022-03-02-08-03-45.png)
