@@ -4,6 +4,7 @@ look at my pytorch file it has better/similar explanation of style transfer
 ## Style transfer
 ![](screenshots/2022-02-27-09-54-55.png)
 
+
 Approaches to style transfer:
 1. Supervised learning: this is when you feed the network images and desired stylized images, and the network learns to produce the stylized image. Needs a lot of pairs of images for inputs and labels -> (original, stylized images) . Needs a lot of training data.
 2. Neural Style transfer: Don't need to train the network to produce styles, instead, we extract features using a network and apply those as styles. Similar to transfer learning. ![](screenshots/2022-02-27-09-59-40.png)
@@ -37,3 +38,5 @@ In code it looks like this. Note that at the end we can get G using einsum notat
 ![](screenshots/2022-03-02-08-10-24.png)![](screenshots/2022-03-02-08-11-30.png)![](screenshots/2022-03-02-08-11-45.png)![](screenshots/2022-03-02-08-12-27.png)
 
 ![](screenshots/2022-03-02-08-15-16.png)![](screenshots/2022-03-02-08-16-10.png)
+
+There are many ways to do style transfer, one of them is the supervised approach which we're going to use in lab 1. ![](screenshots/2022-03-07-06-38-40.png)
