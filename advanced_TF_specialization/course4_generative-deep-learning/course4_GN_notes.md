@@ -44,3 +44,11 @@ In code it looks like this. Note that at the end we can get G using einsum notat
 ![](screenshots/2022-03-02-08-15-16.png)![](screenshots/2022-03-02-08-16-10.png)
 
 There are many ways to do style transfer, one of them is the supervised approach which we're going to use in lab 1. ![](screenshots/2022-03-07-06-38-40.png)
+
+
+## Improving the style transfer
+
+Now you may have noticed after lab1 that the stylized image has high frequency artifacts (ridges) that we'd like to remove. well, we can remove them with a high pass filter!
+![](screenshots/2022-03-08-18-53-03.png) Observe the hard ridges in the stylized image.
+
+![](screenshots/2022-03-08-18-56-43.png)

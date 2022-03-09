@@ -235,3 +235,9 @@ AlexNet got modified to reduce those weaknesses mentioned above:
 This is the result, we get more mid frequencies in layer 1, and cleaner features in layer 2
 ![](screenshots/2022-02-21-15-02-10.png)
 
+
+We can see that we have introduced a lot of high frequency noise 
+![](screenshots/2022-03-08-18-54-28.png)
+
+We can fix this by using `Total Variational Loss` which will combat the high frequency artifacts
+
