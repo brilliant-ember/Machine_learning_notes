@@ -52,3 +52,21 @@ Now you may have noticed after lab1 that the stylized image has high frequency a
 ![](screenshots/2022-03-08-18-53-03.png) Observe the hard ridges in the stylized image.
 
 ![](screenshots/2022-03-08-18-56-43.png)
+
+
+
+# Week 2 AutoEncoders
+- They are neural networks capable of learning dense representations of input data  without supervision(training data is not labelled)
+- They are good for dimensionality reduction and visualization
+- can be used to as an efficient way to represent data.
+
+For example take a look at these 2 sequences of numbers ![](screenshots/2022-03-24-18-27-21.png)
+
+If you're asked to look at one of them and memorize it, which one is easier?
+
+At first glance you might say the first one, but on a second though the second sequence is easier because there's a pattern, they're all squares, so you wouldn't have to remember them, you could just figure them out from the pattern.
+
+The pattern is called _latent representation_ and the goal of auto-encoders is to create this latent representation or pattern.
+
+
+  
