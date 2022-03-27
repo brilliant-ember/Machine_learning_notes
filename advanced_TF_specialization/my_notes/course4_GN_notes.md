@@ -87,3 +87,20 @@ and here's an example of how to do an autoencoder but with Sequential api
  ![](screenshots/2022-03-27-14-53-41.png)
 
  ![](screenshots/2022-03-27-14-55-34.png)
+
+
+# Denoising an image with autoencoder
+
+We typically try to make the autoencoder model predict the input image itself.
+![](screenshots/2022-03-27-16-07-05.png)
+
+We can make the autoencoder `denoise` the image if we train it so it accepts a noisy image as input and the output is the original image without noise.
+![](screenshots/2022-03-27-16-08-16.png)
+
+![](screenshots/2022-03-27-16-08-39.png)
+
+Not bad! it removes the noise!!
+
+![](screenshots/2022-03-27-16-08-54.png)
+
+We use `clip_by_value` to ensure that we don't accidentally pollute the normalized image, so we ensure the vallues are between 0 and 1
