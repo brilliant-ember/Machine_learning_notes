@@ -69,4 +69,5 @@ At first glance you might say the first one, but on a second though the second s
 The pattern is called _latent representation_ and the goal of auto-encoders is to create this latent representation or pattern.
 
 
-  
+ ![](screenshots/2022-03-26-08-18-54.png)
+ ![](screenshots/2022-03-26-08-20-03.png)
