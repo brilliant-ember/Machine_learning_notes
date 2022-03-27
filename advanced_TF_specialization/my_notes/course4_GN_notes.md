@@ -71,3 +71,19 @@ The pattern is called _latent representation_ and the goal of auto-encoders is t
 
  ![](screenshots/2022-03-26-08-18-54.png)
  ![](screenshots/2022-03-26-08-20-03.png)
+and here's an example of how to do an autoencoder but with Sequential api
+ ![](screenshots/2022-03-27-14-56-50.png)
+
+ We can use an autoencoder that's built with CNN instead than one that's just built with Dense layers.
+
+ Here is an autoencoder where the encoder and decoder are just built with dense layers. 
+ 
+ The rows are in this order( original image, encodings, decodings)
+
+ ![](screenshots/2022-03-27-14-53-14.png)
+
+
+ And here's an autoencoder that uses CNNs which is a lot better than the dense only approach
+ ![](screenshots/2022-03-27-14-53-41.png)
+
+ ![](screenshots/2022-03-27-14-55-34.png)

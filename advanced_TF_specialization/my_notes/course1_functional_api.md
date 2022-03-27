@@ -23,6 +23,15 @@ Multi input
 ![](screenshots/2021-10-11-12-41-46.png)
 
 
+The functional API returns the output tensor if used in this format
+`conv_output = Conv2D(filters=x, kernel_size=y, padding="same", activation="relu")(inputs)`
+
+and will return the `keras.layers.Conv2D` object if used without the the final argument, so like this
+`conv_output = Conv2D(filters=x, kernel_size=y, padding="same", activation="relu")`
+
+
+The output tensor is just the tensor that results from math operations that involve the layer so would be in the case of a dense layer the multiplication of weights by the the activation, and adding bias
+
 ## Week two, custom loss functions
 
 ![](screenshots/2021-10-16-17-34-19.png)
