@@ -138,6 +138,8 @@ Very similar to normalization for training data, but here we optimize the model'
   outputs = [model.get_layer(layer_name).output, model.output]
   model_grad = Model(inputs, outputs)
   ```
+  - Upsample or upsampling is an operation that allows us to duplicate image data's rows and columns while ignoring the num_samples and channels dimensions ![](screenshots/2022-03-31-07-10-34.png)
+- `.repeat()` on tfds tells it to repeat the dataset once exhausted so you will never get the `OutOfRange` error when you run outta data 
 
 
  ### note and cool resources

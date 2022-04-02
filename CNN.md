@@ -12,12 +12,14 @@
 
 ## Maxpooling
 
-  is when u reducec the image size based on the biggest pixel value
+  is when u reduce the image size based on the biggest pixel value
   ![](screenshots/2020-05-31-08-31-10.png) *MaxPooling https://youtu.be/o_DJ-FO6dw0?t=47*
 
-  ![](screenshots/2020-05-31-19-11-55.png) *stride of 2x2 means that we shfit 2px horizantally, when we reach the end the top of the pool-window will slide 2px down*
+  ![](screenshots/2020-05-31-19-11-55.png) *stride of 2x2 means that we shift 2px horizontally, when we reach the end the top of the pool-window will slide 2px down*
 
+In here the original image is 6x6 and our pooling window is 2x2 with stride of 2 -> this means that the resulting pooled image will be 3x3
 
+There are other types of pooling such as *Average pooling* which is when you take the average of the pooling window rather than the maximum, and there's the *Global Pooling* which is different than the two types of pooling above because it takes returns a single number, it is like setting the pooling window size to the entire image, it is a very aggressive pooling method, but it gives us a single number per image, which can be useful sometimes.
 
 ![](screenshots/2020-05-31-08-38-28.png)*https://classroom.udacity.com/courses/ud187/lessons/f00868fe-5974-48c4-bf36-41c0372bed64/concepts/4f7b0b45-3d43-4daa-8d6a-054cdd14abe9*
 
@@ -38,11 +40,11 @@
 
 - ### *DropOuts* A great way to help with reduce overfitting. Is when we turn off neurons during training, so other neurons can contrinute more
   
-### 1D conv net and Time series forcasting
+### 1D conv net and Time series forecasting
 
 - 1D conv net slide the filter throu a list rather than through an image matrix(conv 2d) which makes them great for analyzing series and time forcasting
 - ![](screenshots/2020-06-19-19-41-10.png)*https://youtu.be/CG2V--A7Ebk?t=79*
-- We can use causel padding to add the padding at the begining so that outputs at time t depend on inputs at time t. rather than using "same" padding which may cause the output at t to depend on input after time t. So for Forcasting it is important to use *Causel padding* In otherwords, Causel padding prevents the model form peaking into the future.
+- We can use causal padding to add the padding at the beginning so that outputs at time t depend on inputs at time t. rather than using "same" padding which may cause the output at t to depend on input after time t. So for Forecasting it is important to use *Causel padding* In otherwords, Causel padding prevents the model form peaking into the future.
 
 ### Dialted Convolution
 
@@ -56,7 +58,7 @@ These introduce holes in a CNN filter to get more coverage, a standared  3*3 ker
   - Boarder view, like bird eye view, so u see the bigger picture but with less details
   - more efficient
 - In WaveNet the had dialtion the keeps doubling for their time series , a dilation of 2 means that you skip every other time step https://youtu.be/VSU33wFHb0o?t=18, Dilation of 4 means that you skip 3 time steps out of 4.
-  - ![](screenshots/2020-06-20-09-45-03.png)*A WaveNet like archetecture, made of 6 convoltinoal layers with growing dialation and the final conv layer with filter 1 and strid 1 is equal to a dense layer https://youtu.be/VSU33wFHb0o?t=100*
+  - ![](screenshots/2020-06-20-09-45-03.png)*A WaveNet like architecture, made of 6 convoltinoal layers with growing dialation and the final conv layer with filter 1 and stride 1 is equal to a dense layer https://youtu.be/VSU33wFHb0o?t=100*
 
 ## Extra refs
 - a guide on cnn https://towardsdatascience.com/a-comprehensive-guide-to-convolutional-neural-networks-the-eli5-way-3bd2b1164a53
