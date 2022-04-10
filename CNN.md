@@ -48,10 +48,10 @@ There are other types of pooling such as *Average pooling* which is when you tak
 
 ### Dialted Convolution
 
-These introduce holes in a CNN filter to get more coverage, a standared  3*3 keranal (filter) has a dilation of 1. The more we increase dialtion the more "seprate" the filter is
+These introduce holes in a CNN filter to get more coverage, a standared  3*3 keranal (filter) has a dilation of 1. The more we increase dialtion the more "separate" the filter is
 ![](screenshots/2020-06-20-09-33-48.png)*https://youtu.be/0Lg_V0Um-1Q?t=84*
 - Usage:
-  - Dialted convs are used in WaveNet archtecture (Text to speech)
+  - Dialted convs are used in WaveNet architecture (Text to speech)
   - are good of sequences of input (time series like audio, text ...etc)
 - Why?
   - it gives a global view of the data piece, but with less parameters
