@@ -43,22 +43,22 @@ The following screenshot is taken from MIT intro to deep learning course https:/
 ------------------------------------
 
 ### Gradient tape
-When u do backpropagation you need your previously computed gradeints. we can store them one by one, but a neater way of doing it is useing gradient tape, which stores it and then when it is time to backprop it "pops" the gradients we previously computed. it is like a tape record but for gradients. Stack over flow says _"to back propagate errors, you have to keep track of the gradients of your computation and then apply these gradients to an optimiser."_ https://stackoverflow.com/questions/53953099/what-is-the-purpose-of-the-tensorflow-gradient-tape
+When u do backpropagation you need your previously computed gradients. we can store them one by one, but a neater way of doing it is using gradient tape, which stores it and then when it is time to backprop it "pops" the gradients we previously computed. it is like a tape record but for gradients. Stack over flow says _"to back propagate errors, you have to keep track of the gradients of your computation and then apply these gradients to an optimiser."_ https://stackoverflow.com/questions/53953099/what-is-the-purpose-of-the-tensorflow-gradient-tape
 
 ----------------
 
 ### Variational Autoencoders
 Notes I referenced: https://www.youtube.com/watch?v=9zKuYvjFFS8 , and this but the 2019 version https://www.youtube.com/watch?v=rZufA635dq4&t=67s 
 
- - _Autoencoder_ is a compression unsupervised neural net, it takes ur data and tried to 'compress' or express it in as little space as possible. The compressed version of the data describes the entire un-compressed piece of data, and it is possible to derive back the orignal piece of data from the encoded or compressed data. The compressed version of the data is called __latent variable__.
+ - _Autoencoder_ is a compression unsupervised neural net, it takes ur data and tried to 'compress' or express it in as little space as possible. The compressed version of the data describes the entire un-compressed piece of data, and it is possible to derive back the original piece of data from the encoded or compressed data. The compressed version of the data is called __latent variable__.
   
     For example a 1280 x 720 cat image can be described by a 10d latent vector or 10 latent vars (arbitrary numbers not actual results). 
   
-    - The latenet vector/variable can be de-encoded or de-compressed to get the orginakl image, the image will not be teh exact same, and we can do pixel by pixel comparission to compute the compression loss, and from there we can train a better compression neural net
+    - The latent vector/variable can be de-encoded or de-compressed to get the original image, the image will not be teh exact same, and we can do pixel by pixel comparission to compute the compression loss, and from there we can train a better compression neural net
      
    - The more latent vars we use the sharper and the more details will be obtained from the de-compression
    - By feeding the encoder step noisy images as inputs, you can force the decoder to remove the noise from the images and obtain the actual images before u added the noise to them, so in otherwords you can create a _noise removing neural net or de-noising autoencoder_  ![](screenshots/2020-05-23-09-48-35.png) *ypu train the model with the bottom noisy images and train it to produce the top clean ones https://youtu.be/r0Ogt-q956I?t=9903*
-   - _Neural Impaiting_ is when u crop out a part of the input image, feed it to the encoder step and have the decoder comeup with the part that you cropped, this can be used to remove either watermarks or even remove objects in video footage
+   - _Neural Impaiting_ is when u crop out a part of the input image, feed it to the encoder step and have the decoder come-up with the part that you cropped, this can be used to remove either watermarks or even remove objects in video footage
 
 ![](screenshots/2020-05-17-16-40-34.png)
 *An Autoencoder. Left side: encoding step. Right side: decoding step
@@ -68,13 +68,13 @@ https://mc.ai/auto-encoder-in-biology/*
 
 - Variational Autoencoders 
     --
-    - Are the same as autoencoders, but instead of a fixed latent vector, we have a probablistic layer with the mean and standard deviation that then feeds into the latent vector
+    - Are the same as autoencoders, but instead of a fixed latent vector, we have a probabilistic layer with the mean and standard deviation that then feeds into the latent vector
     - ![](screenshots/2020-05-17-16-58-14.png) *https://lilianweng.github.io/lil-log/2018/08/12/from-autoencoder-to-beta-vae.html*
-    - The sameples latent vector takes a sample from the prob distribution and then feeds that to the decoder. U can't do backprobagation with the sampling node since the sample from the distribution can be different. So we resort to a reparamtrization trick to enable us to train the NN end to end
-    - If you run the same image thru a VAE you're going to get a different "latent representation" every time. meaning that everytime you decode it you will get new images, which are generated images!
+    - The samples latent vector takes a sample from the prob distribution and then feeds that to the decoder. U can't do backpropagation with the sampling node since the sample from the distribution can be different. So we resort to a reparamtrization trick to enable us to train the NN end to end, which is just to train the mean and the sigma usually, but we also introduce an epsilon variable for the "random"ness it is a fixed stochastic node that we don't care if we don't train so we keep it constant. watch this for more info https://youtu.be/9zKuYvjFFS8?t=467
+    - If you run the same image thru a VAE you're going to get a different "latent representation" every time. meaning that every time you decode it you will get new images, which are generated images!
     - ![](screenshots/2020-05-23-09-38-26.png)
     - *mnist numbers set with 2 latent vars https://youtu.be/r0Ogt-q956I?t=9796*
-    - This images is only 2d because of us only using two latent variables, but if we use x-latent vars then we'll get x-dimintional representation, which is very nicely seperated.
+    - This images is only 2d because of us only using two latent variables, but if we use x-latent vars then we'll get x-dimensional representation, which is very nicely separated.
     - If we pass the data in the above image to the decoder we get the following generated brand new mnist data
     - ![](screenshots/2020-05-23-09-42-56.png)*https://youtu.be/r0Ogt-q956I?t=9821*
 
@@ -84,7 +84,7 @@ https://mc.ai/auto-encoder-in-biology/*
 
 Concatenating two tensors is like using `append()` function on a specific axis. For example if you have 2 tensors of shape (3,) and then you append them the new tensor will have shape (6,).
 
-Stacking on the other hand takes them and puts them on top of each other on a new axis, following the same example of having 2 tensors of shape (3,). If you stack them you will get a new tensor of shape (2, 3). The stack function took the two tensors and created a new dimiention where it appended the whole two tensors to it.
+Stacking on the other hand takes them and puts them on top of each other on a new axis, following the same example of having 2 tensors of shape (3,). If you stack them you will get a new tensor of shape (2, 3). The stack function took the two tensors and created a new dimension where it appended the whole two tensors to it.
 
 ![](screenshots/2021-09-29-08-56-40.png)
 ![](screenshots/2021-09-29-08-57-08.png)
@@ -94,7 +94,7 @@ The input to RNN is 3d, if u have a batch of 4 and each batch has 30 elements an
 
 At each element the memory cell takes a 4 by 1 matrix as input along with the state matrix from the previous element. 
 
- The full output of the RNN is 3d just like the input, the dimientions are" batch size, num of elements, output dim (number of nuerons), assuming we have 3 neurons the output will be of shape (4, 30 ,3)
+ The full output of the RNN is 3d just like the input, the dimensions are" batch size, num of elements, output dim (number of neurons), assuming we have 3 neurons the output will be of shape (4, 30 ,3)
 
  #### ReLu is bad with RNNs!! https://youtu.be/gREXBl-SnLM?t=275
 
@@ -116,7 +116,18 @@ Batch norm is useful because it speeds up training, and makes the model less sen
 
 Very similar to normalization for training data, but here we optimize the model's params like activations, and not just the training data.
 
+BatchNorm yields allows us to use bigger learning rates. 
+It is "wrongly" believed that batchnorm works because it removes something called _internal covariate shift ICS_ which is the notion that the constant changes in the layer's input distribution makes optimization harder so batch norm removes that "negative" effect by controlling the mean and variance of layer activations. However that is not the case as discussed by this video below. Since introducing batch norm didn't reduce covariant shift and didn't impact training that much, and also distributions without batchnorm were not bad and looked very consistent.
+We see that the distributions of batch norm and without it are all good, so even without batch norm distributions aren't bad. ![](screenshots/2022-04-17-08-43-28.png)  https://youtu.be/ZOabsYbmBRM?t=36  
 
+**So is Batch norm really about reducing covariant shift?**
+
+No it is not, since even if we added noise to the mean and variance after batch normalization so to introduce more ICS (internal covariant shift) than the non-batch-normalized case, but we still have better optimization times with batch norm as seen in the image below.
+![](screenshots/2022-04-17-08-46-46.png)
+
+**How does batch norm work then?**
+I has a favorable improvement on the optimization landscape,
+it makes the landscape smoother
 # Misc
 - 3d tensor = numbers in an array, in an array, in another array for a total of 3 arrays deep till u get to the numbers.
 - Parameters of a network mean the weights and bias of a dense layer, or filters in a convolution layer.
