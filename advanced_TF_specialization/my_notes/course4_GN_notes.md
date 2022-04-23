@@ -227,3 +227,14 @@ Here are some generator results
 - After five epochs, some other digits like 3 and 4 start to emgerge ![](screenshots/2022-04-23-08-51-17.png)
 - After 20 epochs we can see some really clear '1' digits ![](screenshots/2022-04-23-08-51-38.png)
 - After 100 epochs we see that we have optimized to generate '1,7,9's ie overfitting, we're generating data but it is biased towards some numbers, and this is called _mod collapse_ The generator is getting better at creating shapes that fool the discremnator and as a result the generator becomes biased towards creating the shapes that fool the discremnator the most  ![](screenshots/2022-04-23-08-52-49.png)
+
+
+## Improve GAN by using conv nets DCGAN (deep conv gan)
+We see in this image below how the GAN made of only Dense has overfitted and created only certain digits but not all of them ![](screenshots/2022-04-23-10-48-50.png)
+
+This is the improved version using CNNs
+![](screenshots/2022-04-23-10-49-31.png)
+
+relevant research paper https://arxiv.org/pdf/1511.06434.pdf
+
+
