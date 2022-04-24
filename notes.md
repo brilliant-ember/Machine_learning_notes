@@ -6,8 +6,12 @@
 
 # General Machine learning notes
 
-Gradient is another word for slope, the higher the gradient the steeper the line at a point ie the higher the slope, negative gradietn means that the slope is negative.
-Oh and the derivative is the slope, like the derivatie is a way of obtaining the slope.
+Machine Learning or specifically deep learning is a great way to solve problems where you don't know anything about what the "domain" and only have samples of desired inputs and output ![](screenshots/2022-04-17-10-22-10.png) [img source](https://blog.tensorflow.org/2018/10/industrial-ai-bhges-physics-based.html)
+
+
+
+Gradient is another word for slope, the higher the gradient the steeper the line at a point ie the higher the slope, negative gradient means that the slope is negative.
+Oh and the derivative is the slope, like the derivative is a way of obtaining the slope.
 
 ## Glossary
 - NN = neural network
@@ -21,7 +25,7 @@ Oh and the derivative is the slope, like the derivatie is a way of obtaining the
 ![](screenshots/2020-05-24-20-17-34.png)*backpropgation https://classroom.udacity.com/courses/ud187/lessons/e0c70c77-5584-4f83-a47b-a67a6172ae75/concepts/ac6c6991-8096-4c7a-bad1-706f7e3d36f1*
 
 
-Normalization is when u make ur data between 0 and 1, for example for a pixel vvalue form 0 to 255, so you want to move that range and map it to the range between 0 and 1. This gives us better results almost always
+Normalization is when u make ur data between 0 and 1, for example for a pixel value form 0 to 255, so you want to move that range and map it to the range between 0 and 1. This gives us better results almost always
 
 Regression is when u predict a single number/output from input data, for example estimating the price of a house based on its specifications is Regression
 Classification, is when u classifu duh. Outputs a probability distribution
