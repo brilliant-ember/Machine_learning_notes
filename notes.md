@@ -103,9 +103,6 @@ At each element the memory cell takes a 4 by 1 matrix as input along with the st
  #### ReLu is bad with RNNs!! https://youtu.be/gREXBl-SnLM?t=275
 
 
-### Various size images in CNN
- RetinaNet can have various size input image because it has 1D convolutional  layers that flatten the input. Because  of this RetinaNet can accept ANY size input image!!.
-- *1D conv layers can be used as Flatten Layers* and the advantage is that you control the number of filters, ie the depth of the layer, therefore, the shape will be 1x1xnum_filters and that's something you control so you can have any size input. look at this github issue that talks about this https://github.com/fizyr/keras-retinanet/issues/341
 
 
 ### Normalization
@@ -114,6 +111,9 @@ It's when we limit the data range between a set max and min. for example if we t
 
 Since the mean and variance will be crazy the training will not be as smooth.  Now if we normalize the data by subtracting the mean and dividing by standard deviation we will have a mean of zero, and one std (u can use any preferred normalization method), then after normaliztion our cost function will be a lot nicer allowing us to use larger learning rates and learn faster! as seen below ![](screenshots/2022-02-06-18-16-54.png)[link](https://youtu.be/DtEq44FTPM4?t=203)
 ### Batch normalization
+
+Allows us to normalize input data across batches. The goal is to reduce peaks and troughs in output data (smooth the output data).
+
 Batch norm is useful because it speeds up training, and makes the model less sensitive to initial weights.
 
 ![](screenshots/2022-02-06-18-19-41.png)
