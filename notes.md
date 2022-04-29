@@ -109,7 +109,7 @@ At each element the memory cell takes a 4 by 1 matrix as input along with the st
 It's when we limit the data range between a set max and min. for example if we train a model to predict cats vs dogs from RGB images, then the pixels will have values between 0 to 255, now this huge variation makes our gradient decedent difficult as it is in the image below
 ![](screenshots/2022-02-06-18-14-04.png) [link](https://www.youtube.com/watch?v=DtEq44FTPM4)
 
-Since the mean and variance will be crazy the training will not be as smooth.  Now if we normalize the data by subtracting the mean and dividing by standard deviation we will have a mean of zero, and one std (u can use any preferred normalization method), then after normaliztion our cost function will be a lot nicer allowing us to use larger learning rates and learn faster! as seen below ![](screenshots/2022-02-06-18-16-54.png)[link](https://youtu.be/DtEq44FTPM4?t=203)
+Since the mean and variance will be crazy the training will not be as smooth.  Now if we normalize the data by subtracting the mean and dividing by standard deviation we will have a mean of zero, and one std (u can use any preferred normalization method), then after normalization our cost function will be a lot nicer allowing us to use larger learning rates and learn faster! as seen below ![](screenshots/2022-02-06-18-16-54.png)[link](https://youtu.be/DtEq44FTPM4?t=203)
 ### Batch normalization
 
 Allows us to normalize input data across batches. The goal is to reduce peaks and troughs in output data (smooth the output data).

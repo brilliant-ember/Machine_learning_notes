@@ -48,19 +48,19 @@ There are other types of pooling such as *Average pooling* which is when you tak
 ## Fighting Overfitting!
 
 - Using Image augmentation we apply random transformations on the training images so our model sees more variation during training, maybe random zoom, random tilts and so on
-  ![](screenshots/2020-05-31-20-21-58.png)*Image augmentaion examples https://youtu.be/Qgd7maIVytI?t=115*
+  ![](screenshots/2020-05-31-20-21-58.png)*Image augmentation examples https://youtu.be/Qgd7maIVytI?t=115*
 
-- ### *DropOuts* A great way to help with reduce overfitting. Is when we turn off neurons during training, so other neurons can contrinute more
+- ### *DropOuts* A great way to help with reduce overfitting. Is when we turn off neurons during training, so other neurons can contribute more
   
 ### 1D conv net and Time series forecasting
 
 - 1D conv net slide the filter throu a list rather than through an image matrix(conv 2d) which makes them great for analyzing series and time forcasting
 - ![](screenshots/2020-06-19-19-41-10.png)*https://youtu.be/CG2V--A7Ebk?t=79*
-- We can use causal padding to add the padding at the beginning so that outputs at time t depend on inputs at time t. rather than using "same" padding which may cause the output at t to depend on input after time t. So for Forecasting it is important to use *Causel padding* In otherwords, Causel padding prevents the model form peaking into the future.
+- We can use causal padding to add the padding at the beginning so that outputs at time t depend on inputs at time t. rather than using "same" padding which may cause the output at t to depend on input after time t. So for Forecasting it is important to use *Causal padding* In otherwords, Causel padding prevents the model form peaking into the future.
 
 ### Dialted Convolution
 
-These introduce holes in a CNN filter to get more coverage, a standared  3*3 keranal (filter) has a dilation of 1. The more we increase dialtion the more "separate" the filter is
+These introduce holes in a CNN filter to get more coverage, a standard  3*3 keranal (filter) has a dilation of 1. The more we increase dialtion the more "separate" the filter is
 ![](screenshots/2020-06-20-09-33-48.png)*https://youtu.be/0Lg_V0Um-1Q?t=84*
 - Usage:
   - Dialted convs are used in WaveNet architecture (Text to speech)
@@ -87,22 +87,23 @@ However, if you use a stride 2x2 you will notice that it is not going to work, s
 
 images source: https://www.coursera.org/learn/generative-deep-learning-with-tensorflow/lecture/DszLn/face-generator
 
-WavNet is based on a TCN
-![](.screenshots/2022-04-29-11-06-26.png)
 
 
 <br>
 
-# Covolution for Sequential data - Causal Con - Temporal Convolution Network
+# Convolution for Sequential data - Causal Con - Temporal Convolution Network
 CNNs outperform RNNs in sequential data learning (like time series) of course there are always trade offs between using an RNN vs a CNN, but the CNN avoid the exploding and vanishing gradient problems in RNNs. CNNs are also faster to train.
 
 Causal Convolution with Dialation can be used to read ordered sequences (speech for example). They do suffer from the receptive field problem (how many datapoints can I observe at a given moment) a solution to this is to use stacks of dialated conv layers with different layers each has an increasing dialation factor this is called Temporal Convolution Network (TCN). The pros is that it can look at early points in the input data, cons is that it can suffer if there's a segment of "silence" in the data, as that will be calculated in the weights training if no counter measures are implemented.
 
 ![](./screenshots/2022-04-29-11-03-02.png)
 
+WavNet is based on a TCN
+
+![](./screenshots/2022-04-29-11-06-26.png)
+
+
 good lecture about it : https://www.youtube.com/watch?v=rT77lBfAZm4
-
-
 
 
 
