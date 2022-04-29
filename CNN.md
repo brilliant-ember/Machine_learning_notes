@@ -87,6 +87,24 @@ However, if you use a stride 2x2 you will notice that it is not going to work, s
 
 images source: https://www.coursera.org/learn/generative-deep-learning-with-tensorflow/lecture/DszLn/face-generator
 
+WavNet is based on a TCN
+![](.screenshots/2022-04-29-11-06-26.png)
+
+
+<br>
+
+# Covolution for Sequential data - Causal Con - Temporal Convolution Network
+CNNs outperform RNNs in sequential data learning (like time series) of course there are always trade offs between using an RNN vs a CNN, but the CNN avoid the exploding and vanishing gradient problems in RNNs. CNNs are also faster to train.
+
+Causal Convolution with Dialation can be used to read ordered sequences (speech for example). They do suffer from the receptive field problem (how many datapoints can I observe at a given moment) a solution to this is to use stacks of dialated conv layers with different layers each has an increasing dialation factor this is called Temporal Convolution Network (TCN). The pros is that it can look at early points in the input data, cons is that it can suffer if there's a segment of "silence" in the data, as that will be calculated in the weights training if no counter measures are implemented.
+
+![](./screenshots/2022-04-29-11-03-02.png)
+
+good lecture about it : https://www.youtube.com/watch?v=rT77lBfAZm4
+
+
+
+
 
 <br>
 
