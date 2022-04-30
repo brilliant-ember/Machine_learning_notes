@@ -12,10 +12,10 @@ Anything that changes with time and (hopfully) can be represented with a graph (
         mse = mean square error
         rmse = root mean square error (has the advantage of being close in scale to the actual value in the time series so it is easier to interpret )
         mae aka mad = mean absolute error or mean absolute deviation
-        mape = mean absolute percent error --> idea of size errors comared to values in the model
- mae does not penalize large errors as much as mse, so depending the task one might choose mae or mse, example, if large erros are dangrous then choose mse. OR if the loss is proprtional to the size of the error then mae is better.
+        mape = mean absolute percent error --> idea of size errors compared to values in the model
+ mae does not penalize large errors as much as mse, so depending the task one might choose mae or mse, example, if large erros are dangrous then choose mse. OR if the loss is proportional to the size of the error then mae is better.
 
- Say we have this model that has sensonality, noise, and trend and we want to perform forcasting on it, that's hard if the model is as is, so we try to isolate and clean the model. If we use a moving average we remove noise,but fail to forcast trend or seasonality
+ Say we have this model that has seasonality, noise, and trend and we want to perform forcasting on it, that's hard if the model is as is, so we try to isolate and clean the model. If we use a moving average we remove noise,but fail to forecast trend or seasonality
 
 
  ![](screenshots/2020-06-16-18-45-14.png)*remove noise by a moving average(the sum of the mean until time t . https://youtu.be/vEozDGPwQ7c?t=113)*
@@ -27,4 +27,4 @@ Anything that changes with time and (hopfully) can be represented with a graph (
  2. Predicting_the_future_without_ML.ipynb
  3. Dataset creation and Time window.ipynb
  4. Forcasting with ML and ML tricks!.ipynb 
- 5. Forcasting_CNN_Best_Result.ipynb
+ 5. Forecasting_CNN_Best_Result.ipynb
