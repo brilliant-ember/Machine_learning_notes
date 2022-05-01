@@ -159,6 +159,8 @@ it makes the landscape smoother
 
  ### note and cool resources
 
+ - If you use `categorical-cross-entropy` loss you need to hot-encode your labels, but if you want to use numeric values you should use `sparse-categorical-cross-entropy`
+
  - three tricks for better learning:
    1.  Using learning rate schedule to figure the best learning rate (look at tricks in time series forecast)
    2.  Early stopping
